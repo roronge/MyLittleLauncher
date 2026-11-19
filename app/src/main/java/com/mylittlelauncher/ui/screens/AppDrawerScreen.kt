@@ -240,10 +240,9 @@ fun AppDrawerScreen(
                 ) {
                     Text(
                         text = if (selectedCategory == AppCategory.FAVORITES)
-                            "Belum ada aplikasi favorit.
-Tekan lama ikon aplikasi mana saja untuk menambahkannya."
+                            "Belum ada aplikasi favorit.\nTekan lama ikon aplikasi mana saja untuk menambahkannya."
                         else
-                            "Tidak ada aplikasi yang cocok dengan "$search"",
+                            "Tidak ada aplikasi yang cocok dengan \"$search\"",
                         color = palette.muted,
                         fontSize = 13.sp,
                         lineHeight = 20.sp
