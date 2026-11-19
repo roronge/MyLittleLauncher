@@ -41,6 +41,7 @@ import android.content.pm.ResolveInfo
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.foundation.Image
 import androidx.compose.ui.res.painterResource
+import androidx.compose.foundation.isSystemInDarkTheme
 
 private val Ink = Color(0xFF25252B)
 private val Muted = Color(0xFF777781)
