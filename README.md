@@ -1,32 +1,30 @@
-# My Little Launcher
+# My Little Launcher — Soft Mint Luxury
 
-Native Android launcher starter built with Kotlin and Jetpack Compose.
+A Kotlin + Jetpack Compose Android launcher starter, tailored for POCO F3 / HyperOS.
 
-## Current starter features
-- Declares itself as an Android HOME launcher.
-- Lists installed apps with launcher activities.
-- App drawer with live text filtering.
-- Launches selected apps.
-- Selects a photo from the document picker and persists its URI permission.
-- Minimal clock/date presentation and photo-backed home screen.
-- GitHub Actions builds a Debug APK on pushes to `main`/`develop`.
+## Included in v0.2.0
+- HOME launcher and normal app drawer launcher intents.
+- Android package visibility query for launcher activities.
+- Photo-first home screen using the supplied baby photo as the bundled default wallpaper.
+- User-selectable wallpaper via Android document picker.
+- Live clock and Indonesian date.
+- App drawer with search and installed app launching.
+- Floating dock using installed app icons.
+- In-app lock-screen visual preview (not a replacement for Android's secure Keyguard).
+- Soft Mint / Sage / Ivory visual palette.
+- GitHub Actions Debug APK build.
 
-## Build locally
-Requirements: JDK 17 and Gradle 8.13.
-
+## Build
+JDK 17 and Gradle 8.13:
 ```bash
-gradle :app:assembleDebug
+gradle --no-daemon :app:assembleDebug
 ```
 
-APK: `app/build/outputs/apk/debug/app-debug.apk`
+APK:
+`app/build/outputs/apk/debug/app-debug.apk`
 
 ## GitHub Actions
-Push this repository to GitHub. Open **Actions** and download the artifact named
-`my-little-launcher-debug` from the latest successful workflow run.
+Push to `main` or `develop`; download `my-little-launcher-soft-mint-debug` from Actions artifacts.
 
-## Important next steps
-This is an initial scaffold, not a finished production launcher. The clock currently
-updates when Compose recomposes; replace it with a lifecycle-aware ticker. Add proper
-app icon rendering/caching, drag-and-drop grid placement, folders, favorites persistence,
-gesture handling, widget hosting, crash handling, and signed release builds before
-daily use. Test on the target Android devices and OS versions.
+## Important Android platform boundaries
+A third-party launcher cannot silently replace Android/HyperOS Keyguard, Quick Settings, or the system notification shade. The lock screen in this version is an in-app visual preview only. Secure authentication remains owned by Android. Widget hosting, drag-and-drop workspace editing, folders, custom icon mapping, and notification listener integration are planned next steps and are not represented as completed features.
