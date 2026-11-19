@@ -1,30 +1,29 @@
-# My Little Launcher — Soft Mint Luxury
+# My Little Launcher — v0.3.0 (Revamped Edition)
 
-A Kotlin + Jetpack Compose Android launcher starter, tailored for POCO F3 / HyperOS.
+Custom Android Home Launcher berbasis **Kotlin + Jetpack Compose** dengan arsitektur modular, efek *glassmorphism*, pelacak milestone anak, dan optimasi untuk POCO F3 / HyperOS.
 
-## Included in v0.2.0
-- HOME launcher and normal app drawer launcher intents.
-- Android package visibility query for launcher activities.
-- Photo-first home screen using the supplied baby photo as the bundled default wallpaper.
-- User-selectable wallpaper via Android document picker.
-- Live clock and Indonesian date.
-- App drawer with search and installed app launching.
-- Floating dock using installed app icons.
-- In-app lock-screen visual preview (not a replacement for Android's secure Keyguard).
-- Soft Mint / Sage / Ivory visual palette.
-- GitHub Actions Debug APK build.
+## Pembaruan Utama v0.3.0
+- **Arsitektur Modular**: Terpisah menjadi `model/`, `data/`, `ui/theme/`, `ui/components/`, dan `ui/screens/`.
+- **2-Page Home Workspace**:
+  - *Halaman 1*: Tampilan bersih yang menonjolkan foto keluarga, jam/tanggal interaktif (ketuk jam untuk Alarm, ketuk tanggal untuk Kalender), badge sapaan & baterai, serta kartu usia milestone otomatis.
+  - *Halaman 2*: Bilah pencarian cepat dan grid **Aplikasi Disematkan (Pinned Apps)** hingga 8 aplikasi.
+- **Gestur Navigasi Mulus**:
+  - Geser ke atas (*Swipe Up*) di Home untuk membuka App Library.
+  - Geser ke bawah (*Swipe Down*) di Home untuk langsung mencari aplikasi (*Quick Search*).
+  - Mendukung tombol *Back* sistem dan tombol *Home* (`onNewIntent`) untuk kembali ke beranda utama.
+- **App Library Pintar**:
+  - Filter kategori otomatis (*Semua, Favorit, Komunikasi, Hiburan & Foto, Alat & Utilitas, Lainnya*).
+  - *Fast Alphabet Scrubber* (A–Z) di sisi kanan layar.
+  - Tekan lama ikon aplikasi untuk menu cepat: *Favorit, Sematkan di Home, Sembunyikan Aplikasi, Info Aplikasi*.
+  - Sinkronisasi otomatis (*BroadcastReceiver*) saat aplikasi baru diinstal atau dihapus.
+- **Personalisasi Lengkap**:
+  - 4 Preset Tema (*Soft Mint Luxury, Warm Peach Blossom, Lavender Lullaby, Midnight Forest AMOLED*).
+  - Pilihan bentuk ikon (*Squircle, Circle, Rounded*) & kepadatan grid (3–5 kolom).
+  - Pemilihan 4 aplikasi khusus untuk Floating Dock.
+  - Kustomisasi nama anak, tanggal lahir (menghitung usia bulan/hari secara otomatis), dan kutipan pribadi.
 
-## Build
-JDK 17 and Gradle 8.13:
+## Build via GitHub Actions atau Lokal
 ```bash
 gradle --no-daemon :app:assembleDebug
 ```
-
-APK:
-`app/build/outputs/apk/debug/app-debug.apk`
-
-## GitHub Actions
-Push to `main` or `develop`; download `my-little-launcher-soft-mint-debug` from Actions artifacts.
-
-## Important Android platform boundaries
-A third-party launcher cannot silently replace Android/HyperOS Keyguard, Quick Settings, or the system notification shade. The lock screen in this version is an in-app visual preview only. Secure authentication remains owned by Android. Widget hosting, drag-and-drop workspace editing, folders, custom icon mapping, and notification listener integration are planned next steps and are not represented as completed features.
+Output APK berada di `app/build/outputs/apk/debug/app-debug.apk`.
